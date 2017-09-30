@@ -97,16 +97,7 @@ make %{?_smp_mflags}
 %find_lang calamares-dummypythonqt
 %find_lang calamares-python
 
-%post
-%desktop_database_post
-%icon_theme_cache_post
-
 %post   -n %{library_name} -p /sbin/ldconfig
-
-%postun
-%desktop_database_postun
-%icon_theme_cache_postun
-
 %postun -n %{library_name} -p /sbin/ldconfig
 
 %files
