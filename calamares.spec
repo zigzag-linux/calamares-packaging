@@ -92,6 +92,7 @@ make %{?_smp_mflags}
 
 %install
 %cmake_install
+%suse_update_desktop_file -r %{name} Qt System PackageManager
 
 %find_lang calamares-dummypythonqt
 %find_lang calamares-python
