@@ -6,6 +6,7 @@ Group:          System/Base
 Summary:        Distribution-independent installer framework
 URL:            https://calamares.io
 Source0:        %{name}-%{version}.tar.gz
+Patch0:         calamares-xdg-su.patch
 
 # Main
 BuildRequires:  cmake
@@ -21,8 +22,8 @@ BuildRequires:  pkgconfig(Qt5Svg)
 BuildRequires:  pkgconfig(Qt5Quick)
 BuildRequires:  pkgconfig(Qt5Concurrent)
 BuildRequires:  libqt5-linguist-devel
-BuildRequires:  pkgconfig(polkit-qt5-1)
 Requires:       dmidecode
+Requires:       xdg-utils
 
 # Welcome module
 Requires:       upower
@@ -106,13 +107,11 @@ make %{?_smp_mflags}
 %{_mandir}/man8/calamares.8*
 %{_datadir}/applications/calamares.desktop
 %{_datadir}/icons/hicolor/scalable/apps/calamares.svg
-%{_datadir}/polkit-1/actions
 %dir %{_datadir}/calamares/
 %{_datadir}/calamares/settings.conf
 %{_datadir}/calamares/modules/
 %{_datadir}/calamares/branding/
 %{_datadir}/calamares/qml/
-%{_datadir}/polkit-1/actions/com.github.calamares.*
 
 %files -n %{library_name}
 %{_libdir}/libcalamares.so.*
