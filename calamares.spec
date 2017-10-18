@@ -123,6 +123,7 @@ make %{?_smp_mflags}
 %{_datadir}/applications/calamares.desktop
 %{_datadir}/icons/hicolor/scalable/apps/calamares.svg
 %dir %{_datadir}/calamares/
+%{_datadir}/calamares/qml/
 
 %files -n %{library_name}
 %{_libdir}/libcalamares.so.*
@@ -139,7 +140,6 @@ make %{?_smp_mflags}
 %{_datadir}/calamares/settings.conf
 %{_datadir}/calamares/modules/
 %{_datadir}/calamares/branding/
-%{_datadir}/calamares/qml/
 
 %files lang -f calamares-dummypythonqt.lang -f calamares-python.lang
 
