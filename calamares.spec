@@ -24,6 +24,7 @@ BuildRequires:  pkgconfig(Qt5Concurrent)
 BuildRequires:  libqt5-linguist-devel
 Requires:       dmidecode
 Requires:       xdg-utils
+Requires:       calamares-branding = %{version}
 
 # Welcome module
 Requires:       upower
@@ -81,6 +82,20 @@ in order to satisfy a wide variety of needs and use cases.
 
 This package holds the development files for %{name}.
 
+%package branding-upstream
+Summary:        Upstream branding for Calamares installer
+Group:          System/Base
+Provides:       calamares-branding = %{version}
+Supplements:    packageand(calamares:branding-upstream)
+Conflicts:      otherproviders(calamares-branding)
+Requires:       calamares = %{version}
+
+%description branding-upstream
+Calamares is an installer framework. By design it is very customizable,
+in order to satisfy a wide variety of needs and use cases.
+
+This package provides upstream branding for %{name}.
+
 %lang_package
 
 %prep
@@ -108,10 +123,6 @@ make %{?_smp_mflags}
 %{_datadir}/applications/calamares.desktop
 %{_datadir}/icons/hicolor/scalable/apps/calamares.svg
 %dir %{_datadir}/calamares/
-%{_datadir}/calamares/settings.conf
-%{_datadir}/calamares/modules/
-%{_datadir}/calamares/branding/
-%{_datadir}/calamares/qml/
 
 %files -n %{library_name}
 %{_libdir}/libcalamares.so.*
@@ -123,6 +134,12 @@ make %{?_smp_mflags}
 %{_libdir}/libcalamares.so
 %{_libdir}/libcalamaresui.so
 %{_libdir}/cmake/Calamares/
+
+%files branding-upstream
+%{_datadir}/calamares/settings.conf
+%{_datadir}/calamares/modules/
+%{_datadir}/calamares/branding/
+%{_datadir}/calamares/qml/
 
 %files lang -f calamares-dummypythonqt.lang -f calamares-python.lang
 
