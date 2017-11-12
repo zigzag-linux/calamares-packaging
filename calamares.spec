@@ -24,7 +24,7 @@ BuildRequires:  pkgconfig(Qt5Concurrent)
 BuildRequires:  libqt5-linguist-devel
 Requires:       dmidecode
 Requires:       xdg-utils
-Requires:       calamares-branding = %{version}
+Requires:       %{name}-branding = %{version}
 
 # Welcome module
 Requires:       upower
@@ -57,21 +57,8 @@ Requires:       squashfs
 Calamares is an installer framework. By design it is very customizable,
 in order to satisfy a wide variety of needs and use cases.
 
-%define library_name libcalamares
-
-%package -n %library_name
-Summary:        Shared library for %{name}
-License:        GPL-3.0
-Group:          System/Libraries
-
-%description -n %library_name
-Calamares is an installer framework. By design it is very customizable,
-in order to satisfy a wide variety of needs and use cases.
-
-This package holds the shared library for %{name}.
-
 %package devel
-Requires:       %{library_name} = %{version}
+Requires:       %{name} = %{version}
 Summary:        Development files for %{name}
 License:        GPL-3.0
 Group:          Development/Libraries/C and C++
@@ -85,9 +72,9 @@ This package holds the development files for %{name}.
 %package branding-upstream
 Summary:        Upstream branding for Calamares installer
 Group:          System/Base
-Provides:       calamares-branding = %{version}
+Provides:       %{name}-branding = %{version}
 Supplements:    packageand(calamares:branding-upstream)
-Conflicts:      otherproviders(calamares-branding)
+Conflicts:      otherproviders(%{name}-branding)
 Requires:       calamares = %{version}
 
 %description branding-upstream
@@ -113,8 +100,8 @@ make %{?_smp_mflags}
 %find_lang calamares-dummypythonqt
 %find_lang calamares-python
 
-%post   -n %{library_name} -p /sbin/ldconfig
-%postun -n %{library_name} -p /sbin/ldconfig
+%post -p /sbin/ldconfig
+%postun -p /sbin/ldconfig
 
 %files
 %doc LICENSE AUTHORS
@@ -124,14 +111,14 @@ make %{?_smp_mflags}
 %{_datadir}/icons/hicolor/scalable/apps/calamares.svg
 %dir %{_datadir}/calamares/
 %{_datadir}/calamares/qml/
-
-%files -n %{library_name}
 %{_libdir}/libcalamares.so.*
 %{_libdir}/libcalamaresui.so.*
-%{_libdir}/calamares/
+%dir %{_libdir}/calamares/
+%{_libdir}/calamares/modules
 
 %files devel
 %{_includedir}/libcalamares/
+%{_libdir}/calamares/libcalamares.so
 %{_libdir}/libcalamares.so
 %{_libdir}/libcalamaresui.so
 %{_libdir}/cmake/Calamares/
@@ -144,4 +131,3 @@ make %{?_smp_mflags}
 %files lang -f calamares-dummypythonqt.lang -f calamares-python.lang
 
 %changelog
-
