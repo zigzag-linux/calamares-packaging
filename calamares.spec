@@ -42,6 +42,7 @@ BuildRequires:  kpmcore-devel
 BuildRequires:  pkgconfig(libparted)
 BuildRequires:  pkgconfig(libatasmart)
 BuildRequires:  kparts-devel
+Requires:       cryptsetup
 
 # Webview module
 BuildRequires:  pkgconfig(Qt5WebEngine)
