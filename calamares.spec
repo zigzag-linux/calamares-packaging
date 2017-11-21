@@ -115,11 +115,10 @@ make %{?_smp_mflags}
 %{_libdir}/libcalamares.so.*
 %{_libdir}/libcalamaresui.so.*
 %dir %{_libdir}/calamares/
-%{_libdir}/calamares/modules
+%{_libdir}/calamares/
 
 %files devel
 %{_includedir}/libcalamares/
-%{_libdir}/calamares/libcalamares.so
 %{_libdir}/libcalamares.so
 %{_libdir}/libcalamaresui.so
 %{_libdir}/cmake/Calamares/
