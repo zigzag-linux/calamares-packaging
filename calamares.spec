@@ -98,7 +98,6 @@ make %{?_smp_mflags}
 %cmake_install
 %suse_update_desktop_file -r %{name} Qt System PackageManager
 
-%find_lang calamares-dummypythonqt
 %find_lang calamares-python
 
 %post -p /sbin/ldconfig
@@ -128,6 +127,6 @@ make %{?_smp_mflags}
 %{_datadir}/calamares/modules/
 %{_datadir}/calamares/branding/
 
-%files lang -f calamares-dummypythonqt.lang -f calamares-python.lang
+%files lang -f calamares-python.lang
 
 %changelog
