@@ -6,7 +6,7 @@ Group:          System/Base
 Summary:        Distribution-independent installer framework
 URL:            https://calamares.io
 Source0:        %{name}-%{version}.tar.gz
-Patch0:         calamares-xdg-su.patch
+Patch0:         00-replace_pkexec_with_xdg_su.patch
 
 # Main
 BuildRequires:  cmake
