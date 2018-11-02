@@ -92,6 +92,7 @@ This package provides upstream branding for %{name}.
 %build
 %cmake \
     -DCMAKE_BUILD_TYPE:STRING="RelWithDebInfo" \
+    -DINSTALL_CONFIG=ON \
     -DINSTALL_POLKIT=OFF \
     -DBUILD_TESTING=OFF \
     -DWITH_PYTHONQT=OFF
