@@ -95,7 +95,8 @@ This package provides upstream branding for %{name}.
     -DINSTALL_CONFIG=ON \
     -DINSTALL_POLKIT=OFF \
     -DBUILD_TESTING=OFF \
-    -DWITH_PYTHONQT=OFF
+    -DWITH_PYTHONQT=OFF \
+    -DBoost_NO_BOOST_CMAKE=ON #https://github.com/calamares/calamares/issues/1242
 make %{?_smp_mflags}
 
 %install
